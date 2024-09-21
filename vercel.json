@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "manage.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "staticfiles/**/*",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/staticfiles/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "manage.py"
+    }
+  ],
+  "env": {
+    "SECRET_KEY": "@secret_key",
+    "DEBUG": "false",
+    "DATABASE_URL": "@database_url"
+  },
+  "buildCommand": "pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic",
+  "framework": "python"
+}
