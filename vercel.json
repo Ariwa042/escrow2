@@ -22,7 +22,6 @@
   ],
   "env": {
     "DEBUG": "false",
-    "DATABASE_URL": "@database_url"
   },
   "buildCommand": "pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput"
 }
