@@ -15,7 +15,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_URL = 'https://1af136c8-98f5-437f-9d2e-172b94dd440f-00-15ogll9bpohcx.riker.replit.dev'
+BASE_URL = ''
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://1af136c8-98f5-437f-9d2e-172b94dd440f-00-15ogll9bpohcx.riker.replit.dev']
+CSRF_TRUSTED_ORIGINS = ['vercel.app']
 
 AUTH_USER_MODEL = 'account.User'
 
