@@ -2,23 +2,24 @@
   "version": 2,
   "builds": [
     {
-      "src": "manage.py",
+      "src": "config/wsgi.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles_build"
+      }
     }
   ],
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/staticfiles/$1"
+      "dest": "/static/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "manage.py"
+      "dest": "config/wsgi.py"
     }
   ],
-  "env": {
-    "DEBUG": "false",
-    "DATABASE_URL": "your_database_url"  // Add your actual database URL here
-  },
-  "buildCommand": "pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput"
-}
