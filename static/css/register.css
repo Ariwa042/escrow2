@@ -1,0 +1,169 @@
+/* General styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: auto;
+    background-color: #f8f9fa;
+    animation: fadeIn 1.5s ease;
+}
+
+.container {
+    background-image: url({% static 'images/background.jpg' %});
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: whitesmoke;
+    animation: slideUp 1.5s ease;
+}
+
+.form-box {
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(83, 204, 223, 0.41);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    background-color: white;
+    opacity: 0;
+    margin:auto;
+    animation: fadeInScale 1s ease forwards;
+    margin-top: 30px; 
+}
+
+/* Grid Layout for form */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover, select:hover {
+    transform: scale(1.02);
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, select:focus {
+    border-color: #007bff;
+}
+
+/* Full-width buttons */
+input[type="submit"], button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    grid-column: span 2;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Text styling */
+h1, h2 {
+    color: #000080;
+    margin-bottom: 20px;
+    grid-column: span 2;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInText 1.2s ease forwards;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    grid-column: span 2;
+    max-width: 80%;
+    margin: 0 auto 10px;
+    animation: bounceIn 1.2s ease;
+}
+
+/* Header styling */
+header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+
+header img {
+    max-width: 150px;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+    from { transform: scale(0.5); }
+    to { transform: scale(1); }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr;
+        grid-gap: 10px; /* Reduce gap for smaller screens */
+    }
+
+    .form-box {
+        padding: 20px;
+    }
+
+    input[type="submit"], button {
+        grid-column: span 1;
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    h1, .logo {
+        grid-column: span 1;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"], select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    header img {
+        max-width: 120px;
+    }
+}

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Deposit{% endblock %}</title>
+    <script src="//code.jivosite.com/widget/8OXFzkWDju" async></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/deposit.css' %}">
+</head>
+<body>
+    <form method="post" action="{% url 'core:create_deposit' %}" id="deposit-form">
+        <h1>Make a Deposit</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" id="continue-button">Continue</button>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+            
+            setTimeout(function() {
+                document.getElementById('deposit-form').classList.add('visible');
+            }, 100);
+
+            const formElements = document.querySelectorAll('#deposit-form > p');
+            formElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, 200 + (index * 100));
+            });
+        });
+
+        document.getElementById('continue-button').addEventListener('click', function() {
+            document.getElementById('deposit-form').submit();
+        });
+    </script>
+</body>
+</html>

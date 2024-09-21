@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Create Withdrawal{% endblock %}
+
+{% block extra_css %}
+<style>
+    html {
+        background-image: url("{% static 'images/background.jpg' %}");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        font-family: 'Roboto', sans-serif;
+        min-height: 100vh;
+    }
+    .create-withdrawal-section {
+        padding: 3rem 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .withdrawal-container {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-top: 4px solid #4299e1;
+        padding: 2rem;
+        max-width: 500px;
+        width: 90%;
+        margin: 0 auto;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #1a365d;
+        font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: -webkit-fill-available;
+        width: -moz-available;
+        padding: 0.75rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    input[type="text"]:focus,
+    input[type="numbe100r"]:focus,
+    select:focus {
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    h2 {
+        color: #2b6cb0;
+        
+    }
+    
+    .btn-submit {
+        background-color: #2b6cb0;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 10px;
+        width: -webkit-fill-available;
+        width: -moz-available;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+    }
+
+    .btn-submit:hover {
+        background-color: #0056b3;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="create-withdrawal-section">
+        <div class="withdrawal-container">
+            <h2>Create Withdrawal</h2>
+
+            <!-- Withdrawal form -->
+            <form method="post" action="{% url 'core:create_withdrawal' %}">
+                {% csrf_token %}
+                
+                <!-- Withdrawal method field -->
+                <div class="form-group">
+                    {{ form.withdrawal_method.label_tag }}
+                    {{ form.withdrawal_method }}
+                </div>
+
+                <!-- Conditional fields for cryptocurrency -->
+                <div id="crypto-fields" class="hidden">
+                    <div class="form-group">
+                        {{ form.crypto_coin.label_tag }}
+                        {{ form.crypto_coin }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.destination_address.label_tag }}
+                        {{ form.destination_address }}
+                    </div>
+                </div>
+
+                <!-- Conditional fields for bank transfer -->
+                <div id="bank-fields" class="hidden">
+                    <div class="form-group">
+                        {{ form.account_number.label_tag }}
+                        {{ form.account_number }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.bank_name.label_tag }}
+                        {{ form.bank_name }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form.amount.label_tag }}
+                    {{ form.amount }}
+                </div>
+
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const methodField = document.querySelector('[name="withdrawal_method"]');
+                    const cryptoFieldsDiv = document.getElementById('crypto-fields');
+                    const bankFieldsDiv = document.getElementById('bank-fields');
+
+                    function updateFields() {
+                        const method = methodField.value;
+                        if (method === 'bank') {
+                            cryptoFieldsDiv.classList.add('hidden');
+                            bankFieldsDiv.classList.remove('hidden');
+                        } else if (method === 'crypto') {
+                            bankFieldsDiv.classList.add('hidden');
+                            cryptoFieldsDiv.classList.remove('hidden');
+                        } else {
+                            bankFieldsDiv.classList.add('hidden');
+                            cryptoFieldsDiv.classList.add('hidden');
+                        }
+                    }
+
+                    methodField.addEventListener('change', updateFields);
+
+                    // Trigger change event on page load if method is already selected
+                    updateFields();
+                });
+            </script>
+
+        </div>
+    </section>
+</main>
+{% endblock %}

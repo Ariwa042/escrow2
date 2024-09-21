@@ -1,0 +1,124 @@
+{% load static %}
+{% load trade_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+    <script src="//code.jivosite.com/widget/8OXFzkWDju" async></script>
+</head>
+<body>
+    <header class="site-header">{% load trade_filters %}
+
+        <a href="{% url 'core:dashboard' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+        </a>
+        <!-- Toggle Button -->
+          <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+          <!-- Navigation Menu -->
+          <nav id="menu" class="menu">
+            <ul>
+              <li><a href="{% url 'core:dashboard' %}">Home</a></li>
+              <li><a href="{% url 'core:create_deposit' %}">Deposit</a></li>
+              <li><a href="{% url 'core:create_withdrawal' %}">Withdraw</a></li>
+              <li><a href="{% url 'account:logout' %}">log out</a></li>
+            </ul>
+          </nav>
+
+          <script>
+              // JavaScript function to toggle the menu visibility
+              function toggleMenu() {
+                const menu = document.getElementById('menu');
+
+                // Toggle the display property
+                if (menu.style.display === 'block') {
+                  menu.style.display = 'none';
+                } else {
+                  menu.style.display = 'block';
+                }
+              }
+
+          </script>
+
+    </header>
+
+    <main class="main-content">
+        <header class="welcome-section">
+            <h1 class="welcome-message">Welcome, {{ user.username }}!</h1>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Account Overview -->
+            <div class="card account-overview">
+                <!--<h2 class="card-title">Account Overview</h2>-->
+                <p class="card-details"><strong>Total Asset Balance</strong> <span class="balance">{{ user_profile.account_balance }}</span></p>
+                <p class="card-details"><strong>All Trades:</strong> <span class="pending-trades">{{ trades.count }}</span></p>
+                <div class="button-group">
+                    <a href="{% url 'core:create_deposit' %}" class="btn deposit">
+                        <img src="{% static 'images/deposit.jpg' %}" alt="Deposit" class="icon">
+                        Deposit
+                    </a>
+                    <a href="{% url 'core:create_withdrawal' %}" class="btn btn-secondary">
+                        <img src="{% static 'images/withdraw.png' %}" alt="Withdraw" class="icon">
+                        Withdraw
+                    </a>
+                </div>
+            </div>
+
+            <!-- Trade Actions -->
+            <div class="card trade-actions">
+                <!--<h2 class="card-title">Trade Actions</h2> -->
+                <div class="button-group">
+                    <a href="{% url 'core:create_trade' %}" class="btn btn-primary">Create Trade</a>
+                    <a href="{% url 'core:join_trade' %}" class="btn join-trade">Join Trade</a>
+                </div>
+            </div>
+
+            <!-- Trade Overview -->
+                    <div class="card trade-overview">
+                        <h2 class="card-title">Trade Overview</h2>
+                        <div class="trade-overview-content">
+                            <div class="trade-stats">
+                                <!-- Display the count of pending trades -->
+                                <p class="trade-detail"><strong>Active Trades:</strong> 
+                                    <span class="active-trades">{{ trades|status_is_pending|length }}</span>
+                                </p>
+
+                                <!-- Display the count of completed trades -->
+                                <p class="trade-detail"><strong>Completed Trades:</strong> 
+                                    <span class="completed-trades">{{ trades|status_is_completed|length }}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button class="btn btn-transaction" onclick="window.location.href='{% url 'core:transaction_history' %}'">
+                        Transaction History
+                    </button>
+                    <button class="btn btn-trade" onclick="window.location.href='{% url 'core:trade_history' %}'">
+                        Trade History
+                    </button>
+
+                </div>
+            </div>
+                
+            <!-- Account Management    
+            <div class="card account-management">
+                <h2 class="card-title">Account Management</h2>
+                <p>Manage your account settings and security:</p>
+                <div class="button-group">
+                    <a href="{% url 'account:profile' %}" class="btn btn-secondary">View Profile</a>
+                    <a href="{% url 'account:logout' %}" class="btn btn-danger">Logout</a>
+                </div>
+            </div>--> 
+
+</div>
+    </main>
+</body>
+</html>

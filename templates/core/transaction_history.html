@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Transaction History{% endblock %}</title>
+    <script src="//code.jivosite.com/widget/8OXFzkWDju" async></script>
+    <link rel="stylesheet" href="{% static 'css/transaction-history.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <a href="{% url 'core:dashboard' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+        </a></header>
+    <section class="transaction-history-section">
+        <div class="container">
+            <h2>Transaction History</h2>
+
+            <!-- Deposits Section -->
+            <h3>Deposits</h3>
+            <table class="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Status</a></th>
+                        <th>Asset</a></th>
+                        <th>Amount</a></th>
+                        <th>Date</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for deposit in deposits %}
+                        <tr>
+                            <td>
+                            <span class="status-badge status-{{ deposit.status|lower }}">{{ deposit.status }}</span></td>
+                            <td>{{ deposit.crypto_coin.name }}</td>
+                            <td>{{ deposit.amount }}</td>
+                            <td>{{ deposit.created_at|date:"m/j/Y, G:i" }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5">No deposits found.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Pagination for Deposits 
+            <div class="pagination">
+                <span class="step-links">
+                    {% if deposits.has_previous %}
+                        <a href="?page=1">First</a>
+                        <a href="?page={{ deposits.previous_page_number }}">Previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ deposits.number }} of {{ deposits.paginator.num_pages }}.
+                    </span>
+
+                    {% if deposits.has_next %}
+                        <a href="?page={{ deposits.next_page_number }}">Next</a>
+                        <a href="?page={{ deposits.paginator.num_pages }}">Last</a>
+                    {% endif %}
+                </span>
+            </div> -->
+
+            <!-- Withdrawals Section -->
+            <h3>Withdrawals</h3>
+            <table class="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Status</a></th>
+                        <th>Asset</a></th>
+                        <th>Amount</a></th>
+                        <th>Date</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for withdrawal in withdrawals %}
+                        <tr>
+                            <td>    <span class="status-badge status-{{ withdrawal.status|lower }}">{{ withdrawal.status }}</span>{{ withdrawal.status }}</td>
+                            <td>{{ withdrawal.crypto_coin.name }}</td>
+                            <td>${{ withdrawal.amount }}</td>
+                            <td>{{ withdrawal.created_at|date:"m/j/Y, G:i" }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5">No withdrawals found.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Pagination for Withdrawals
+            <div class="pagination">
+                <span class="step-links">
+                    {% if withdrawals.has_previous %}
+                        <a href="?page=1">First</a>
+                        <a href="?page={{ withdrawals.previous_page_number }}">Previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ withdrawals.number }} of {{ withdrawals.paginator.num_pages }}.
+                    </span>
+
+                    {% if withdrawals.has_next %}
+                        <a href="?page={{ withdrawals.next_page_number }}">Next</a>
+                        <a href="?page={{ withdrawals.paginator.num_pages }}">Last</a>
+                    {% endif %}
+                </span>
+            </div>-->
+        </div>
+    </section>
+</body>
+</html>

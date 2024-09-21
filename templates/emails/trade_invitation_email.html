@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade Invitation</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333; }
+    .container { width: 100%; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 8px; }
+    .header { text-align: center; padding-bottom: 20px; }
+    .button { display: block; width: 100%; padding: 10px; background-color: #007bff; color: #fff; text-align: center; border-radius: 5px; text-decoration: none; }
+    .footer { text-align: center; padding-top: 20px; font-size: 12px; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Trade Invitation</h2>
+    </div>
+    <p>Dear {{ recipient_email }},</p>
+    <p>You have been invited to participate in a trade as a <strong>{{ recipient_role }}</strong>.</p>
+    <p>Trade ID: <strong>{{ trade.trade_id }}</strong></p>
+    <p class="footer">Thank you for using our platform.</p>
+  </div>
+</body>
+</html>

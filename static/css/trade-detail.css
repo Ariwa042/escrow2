@@ -1,0 +1,321 @@
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+body {
+    background-image: url("/static/images/background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.trade-detail-section {
+    padding: 2rem 0;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: ghostwhite;
+    margin-bottom: 2rem;
+    text-align: center;
+    animation: slideIn 0.8s ease-out;
+}
+
+.card {
+    background-color: #223d85de;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: ghostwhite;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.card-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: yellow;
+    transition: width 0.3s ease;
+}
+
+.card:hover .card-title::after {
+    width: 100px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.info-item {
+    margin-bottom: 1rem;
+    animation: slideIn 0.6s ease-out;
+}
+
+.info-item h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: ghostwhite;
+    margin-bottom: 0.5rem;
+}
+
+.info-item p {
+    margin: 0.25rem 0;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover p {
+    transform: translateX(5px);
+    color: #6a4cbb;
+}
+
+.participants-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .participants-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+strong {
+    font-weight: 600;
+    color: white;
+}
+
+p {
+    color: ghostwhite;
+    font-weigh: 600;
+}
+
+/* Status indicators */
+.status-indicator {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+}
+
+.status-pending {
+    background-color: #ffd700;
+    color: #333;
+}
+
+.status-completed {
+    background-color: #4caf50;
+    color: white;
+}
+
+.status-failed {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Hover effects */
+.info-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.info-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background-color: #6a4cbb;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover::before {
+    left: 0;
+}
+
+/* Button styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    width: 7rem;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: ghostwhite;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+}
+
+.btn img.icon {
+    margin-right: 0.5rem;
+    width: 20px;
+}
+
+.btn-secondary {
+    background-color: #0f79d1;
+}
+
+.btn-secondary:hover {
+    background-color: #d32f2f;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Responsive font sizes */
+@media (max-width: 576px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    .card-title {
+        font-size: 1.3rem;
+    }
+    .info-item h3 {
+        font-size: 1rem;
+    }
+}
+.button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem; /* Space between buttons */
+}
+
+.button-group button {
+    display: inline-flex;
+    align-items: center; /* Center the image and text */
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s;
+    cursor: pointer;
+}
+
+.button-group button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05); /* Slight hover scaling effect */
+}
+
+.button-group img {
+    width: 24px; /* Set a fixed width for the image */
+    height: 24px; /* Set a fixed height */
+    margin-right: 0.5rem; /* Space between the image and text */
+}
+
+.button-group button.small img {
+    width: 18px; /* Smaller button image size */
+    height: 18px;
+}
+
+.button-group button.large img {
+    width: 32px; /* Larger button image size */
+    height: 32px;
+}
+
+.button-group button:active {
+    transform: scale(0.95); /* Slight "press" effect */
+}
+
+@media (max-width: 768px) {
+    .button-group {
+        gap: 0.5rem; /* Reduce space between buttons on small screens */
+    }
+
+    .button-group button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .button-group img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .button-group button {
+        flex: 1 1 100%; /* Stack buttons vertically on very small screens */
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .button-group img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.site-header {
+  background-color: #235b93;
+  text-align: center;
+  padding: 1rem;
+}
+
+.logo {
+  max-width: 150px;
+}

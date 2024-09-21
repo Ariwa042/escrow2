@@ -1,0 +1,347 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Crypto Swap</title>
+
+    <!-- Mobile Specific Metas -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link type="image/x-icon" href="{% static 'images/fav-icon.png' %}" rel="icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animations.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/color.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper"}</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</head>
+<body>
+    <main class="main">
+        <section class="home-banner relative overflow-h">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 d-flex flex-center">
+                        <div class="banner-content relative z-index-1">
+                            <h1 class="banner-title wow fadeInLeft">Start a <span>Secured</span> Trade today</h1>
+                            <p class="wow fadeInLeft">Our experts and live support team are here to guide you through the process</p>
+                            <a href="{% url 'account:register' %}" class="button wow fadeInLeft">Get Started <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 wow fadeInUp">
+                        <div class="banner-img">
+                            <img src="{% static 'images/banner-img.png' %}" alt="Banner Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Include other sections here -->
+        <header class="header">
+            <div class="container">
+                <div class="row flex-center">
+                    <div class="col-lg-2 col-md-3 col-6">
+                        <div class="logo">
+                            <a href="{% url 'core:index' %}">
+                                <img src="{% static 'images/logo.png' %}" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-6">
+                        <div class="main-menu">
+                            <nav class="nav-menu">
+                                <ul>
+                                    <li><a href="#home">Home</a></li>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#features">Features</a></li>
+                                    <li><a href="#faq">Faq</a></li>
+                                 </ul>                                                                                                                            
+                            </nav>
+                            <div class="login-box">
+                                <a href="{% url 'account:login' %}" class="button">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Steps Section -->
+        <section id="steps" class="works relative purple ptb-100 overflow-h">
+            <div class="container" bis_skin_checked="1">
+                <div class="row d-flex flex-center" bis_skin_checked="1">
+                    <div class="col-xl-12 col-lg-12 col-md-12 relative z-index-1" bis_skin_checked="1">
+                        <div class="section-heading text-center" bis_skin_checked="1">
+                            <h6 class="sub-title text-uppercase wow fadeInUp animated" style="visibility: visible;">Want to trade?</h6>
+                            <h2 class="title wow 
+                            fadeInUp animated" style="visibility: visible;">How it Works</h2>
+                            <p class="wow fadeInUp animated" style="visibility: visible;">It's easier than you think. Follow 3 simple easy steps</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 wow fadeInLeft animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="work-content relative z-index-1" bis_skin_checked="1">
+                            <h3 class="section-sub">Steps to trade.</h3>
+                            <div class="work-box relative" bis_skin_checked="1">
+                                <div class="work-img relative" bis_skin_checked="1">
+                                    <img src="{% static 'images/work-icon-1.png' %}" class="relative z-index-1" alt="Decentralized Platform">
+                                </div>
+                                <div class="work-text" bis_skin_checked="1">
+                                    <h4 class="work-title">Create an account </h4>
+                                    <p>Sign up an account or login an existing account and verify your KYC.</p>
+                                </div>
+                            </div>
+                            <div class="work-box relative" bis_skin_checked="1">
+                                <div class="work-img relative" bis_skin_checked="1">
+                                    <img src="{% static 'images/work-icon-2.png' %}" class="relative z-index-1" alt="Crowd Wisdom">
+                                </div>
+                                <div class="work-text" bis_skin_checked="1">
+                                    <h4 class="work-title">Create P2P trade</h4>
+                                    <p>Choose the buyers and sellers coin details and rates for the trade to create.</p>
+                                </div>
+                            </div>
+                            <div class="work-box relative" bis_skin_checked="1">
+                                <div class="work-img relative" bis_skin_checked="1">
+                                    <img src="{% static 'images/work-icon-3.png' %}" class="relative z-index-1" alt="Rewards MeAchanism">
+                                </div>
+                                <div class="work-text" bis_skin_checked="1">
+                                    <h4 class="work-title">You are all done</h4>
+                                    <p>Both parties will be informed and trade handled successfully.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 wow fadeInRight animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="text-center" bis_skin_checked="1">
+                            <img src="{% static 'images/work-img.png'%}" class="relative z-index-1" alt="Works Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pattern-bg" bis_skin_checked="1">
+                <img src="images/dot-round-bg.png" class="patter" alt="Patter">
+                <img src="images/dot-round-bg.png" class="patter patter-2" alt="Patter">
+            </div>
+        </section>
+        <!-- Features Section -->
+        <section id="features" class="features bluish-purple ptb-100 overflow-h">
+            <div class="container relative" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                    <div class="col-xl-12 col-lg-12 col-md-12 relative z-index-1" bis_skin_checked="1">
+                        <div class="section-heading text-center" bis_skin_checked="1">
+                            <h6 class="sub-title text-uppercase wow fadeInUp animated" style="visibility: visible;">Escrowswaptrade.com Feature</h6>
+                            <h2 class="title wow fadeInUp animated" style="visibility: visible;">Our Features</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row relative z-index-1" bis_skin_checked="1">
+                    <div class="col-xl-4 col-xl-4 col-md-4 feature-box wow fadeInUp animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="box-outer mb-30 transition" bis_skin_checked="1">
+                            <div class="box-inner purple frontend" bis_skin_checked="1">
+                                <img src="{% static 'images/feature-icon-1.png' %}" class="feature-icon mb-30" alt="Currency Wallet">
+                                <h4 class="feature-title mb-20">
+                                <a href="feature.php">100% Encrypted</a></h4>
+                                <p>Our system is 100% ecrypted against DDOS attacks and other forms of attackes as it is a web3.0 platform.your account information, livechat history and transaction information is fully encrypted. You are in full control of your data.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-xl-4 col-md-4 feature-box wow fadeInUp animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="box-outer mb-30 transition" bis_skin_checked="1">
+                            <div class="box-inner purple frontend" bis_skin_checked="1">
+                                <img src="{% static 'images/feature-icon-2.png' %}" class="feature-icon mb-30" alt="Internal Integrition">
+                                <h4 class="feature-title mb-20">
+                                <a href="feature.php">Instant Exchange</a></h4>
+                                <p>With all conditions in place, our pair-to-pair transactions takes a maximum of 24 hours after Initialization. If the parties of the pair transaction pay are available throughout the transaction, it usually only takes a few minutes to complete a transaction on Escrowswaptrade.com</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-xl-4 col-md-4 feature-box wow fadeInUp animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="box-outer mb-30 transition" bis_skin_checked="1">
+                            <div class="box-inner purple frontend" bis_skin_checked="1">
+                                <img src="{% static 'images/feature-icon-3.png' %}" class="feature-icon mb-30" alt="Security Storage">
+                                <h4 class="feature-title mb-20"><a href="feature.php">Safety of funds</a></h4>
+                                <p>Assets locked in the platform will not be released until the transaction is complete. Funds are stored in our blockchain until both parties completes the trading obligations.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-xl-4 col-md-4 feature-box wow fadeInUp animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="box-outer mb-30 transition" bis_skin_checked="1">
+                            <div class="box-inner purple frontend" bis_skin_checked="1">
+                                <img src="{% static 'images/feature-icon-4.png' %}" class="feature-icon mb-30" alt="Reliable &amp; Low Cost">
+                                <h4 class="feature-title mb-20"><a href="feature.php">Dispute System</a></h4>
+                                <p>Take comfort in our excellent dispute system which makes your transaction extra safe. In case of any arguments. Our supervisors are ready to intervene. Our dispute resolution system has been equiped to take care of any dispute that my arise due to transaction mistakes</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-xl-4 col-md-4 feature-box wow fadeInUp animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="box-outer mb-30 transition" bis_skin_checked="1">
+                            <div class="box-inner purple frontend" bis_skin_checked="1">
+                                <img src="{% static 'images/feature-icon-5.png' %}" class="feature-icon mb-30" alt="Insurence Protection">
+                                <h4 class="feature-title mb-20"><a href="feature.php">Easy Wallet</a></h4>
+                                <p>We have created an easy wallet for traders to safe keep their funds even after completed transactions until they wish to withdraw to an external wallet or transfer in the case of NFTs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-xl-4 col-md-4 feature-box wow fadeInUp animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="box-outer mb-30 transition" bis_skin_checked="1">
+                            <div class="box-inner purple frontend" bis_skin_checked="1">
+                                <img src="{% static 'images/feature-icon-6.png' %}" class="feature-icon mb-30" alt="Experts Support">
+                                <h4 class="feature-title mb-20"><a href="feature.php">Reliable and Low cost</a></h4>
+                                <p>We are reliable, we try to keep our trade fees at a minimal to help expand our transaction reach.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="pattern-bg" bis_skin_checked="1">
+                    <img src="images/dotline-bg.png" class="patter" alt="Patter">
+                    <img src="images/dotline-bg.png" class="patter patter-2" alt="Patter">
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section id="about" class="token-sale purple relative overflow-h ptb-100">
+            <div class="container" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                    <div class="col-xl-12 col-lg-12 col-md-12 relative z-index-1" bis_skin_checked="1">
+                        <div class="section-heading text-center" bis_skin_checked="1">
+                            <h6 class="sub-title text-uppercase wow fadeInUp animated" style="visibility: visible;">about</h6>
+                            <h2 class="title wow fadeInUp animated" style="visibility: visible;">About US</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex flex-center relative z-index-1" bis_skin_checked="1">
+                    <div class="col-xl-6 col-lg-6 col-md-12 wow fadeInLeft animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="token-details" bis_skin_checked="1">
+                            <h3 class="token-title">We are leading in the market</h3>
+                            <p>Escrowswaptrade.com was Originated and Incorporated in August 2019 as an office administrative service for foriegn exchanges. It now serves as an intermediary service for cryptocurrency transactions. Today, Escrowswaptrade.com is one of the world's most secure and trusted payment system for cryptocurrency transactions.
+
+        Escrowswaptrade.com serves as an intermediary professional service for cryptocurrency transactions. Today, Escrowswaptrade.com is one of the world's most secure and trusted payment system for cryptocurrency transactions.</p>
+
+                            <ul>
+                                <li>Fast Trade</li>
+                                <li>Secured transactions</li>
+                                <li>Low transaction fees</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 wow fadeInRight animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="token-graph text-center" bis_skin_checked="1">
+                            <img src="{% static 'images/token-sale.png' %}" alt="Graph">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pattern-bg" bis_skin_checked="1">
+                <img src="{% static 'images/dot-full-round.png' %}" class="patter" alt="Patter">
+                <img src="{% static 'images/dot-full-round.png' %}" class="patter patter-2" alt="Patter">
+            </div>
+        </section>
+        <!-- FAQ Section -->
+        <section id="faq" class="faq bluish-purple relative overflow-h ptb-100">
+            <div class="container relative" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                    <div class="col-xl-12 col-lg-12 col-md-12 relative z-index-1" bis_skin_checked="1">
+                        <div class="section-heading text-center" bis_skin_checked="1">
+                            <h6 class="sub-title text-uppercase wow fadeInUp animated" style="visibility: visible;">FAQS</h6>
+                            <h2 class="title wow fadeInUp animated" style="visibility: visible;">Frequently Asked questions</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 relative z-index-1 wow fadeInLeft animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="faq-img" bis_skin_checked="1">
+                            <img src="{% static 'images/faq.png' %}" alt="FAQ">
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 relative z-index-1 wow fadeInRight animated" bis_skin_checked="1" style="visibility: visible;">
+                        <div class="faq-content" bis_skin_checked="1">
+
+
+                            <div class="tab-content" id="myTabContent" bis_skin_checked="1">
+                                <div role="tabpanel" class="tab-pane fade in active show" id="general" aria-labelledby="general-tab" bis_skin_checked="1">
+                                    <div class="faq-box" bis_skin_checked="1">
+                                        <div class="faq-title" bis_skin_checked="1">How can I create P2P trade</div>
+                                        <div class="faq-panel" bis_skin_checked="1">
+                                            Step 1:login your escrowswaptrade dashboard, select “create trade” and fill in the necessary details.<br>
+                                            Step 2: Enter the recipient's email address. Use the email address associated with the recipient's Binance account.<br>
+                                            Step 3: Select the amount and the cryptocurrency you wish to send (no minimum amount required).	</div>
+                                    </div>
+                                    <div class="faq-box" bis_skin_checked="1">
+                                        <div class="faq-title" bis_skin_checked="1">How can one make payment and withdraw from P2P trade room?</div>
+                                        <div class="faq-panel" bis_skin_checked="1">
+                                            After filling in the necessary details on the create trade page. Kindly proceed to the “MAKE PAYMENT” option and pay the token that has been set to you. Once payment from both parties gets confirmed then you can click the “WITHDRAW TOKEN” option next. insert your token withdrawal address and send your receiving token will be sent to your wallet within 3-5 mins.
+                                        </div>
+                                    </div>
+                                    <div class="faq-box" bis_skin_checked="1">
+                                        <div class="faq-title" bis_skin_checked="1">How to import a custom token?</div>
+                                        <div class="faq-panel" bis_skin_checked="1">
+                                           Press the “Import token” button at the side of your dashboard. Type in the token you would like to add in the bar displayed. Select the custom token from the list and hit “Next.” Now tap “Import token” to include the coin to your account. After that kindly wait for a few mins and support will add the necessary tokens to your account . insert your external address and sending your receiving token directly to your wallet.
+                                        </div>
+                                    </div>
+                                    <div class="faq-box" bis_skin_checked="1">
+                                        <div class="faq-title" bis_skin_checked="1">How to dispute trade?</div>
+                                        <div class="faq-panel" bis_skin_checked="1">
+                                            There are multiple ways to dispute trades, once the buyer or seller of an open contract trade cannot meet the requirements then the other party can report to the live chat support.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pattern-bg" bis_skin_checked="1">
+                    <img src="{% static 'images/faq-bg.png' %}" class="patter" alt="Patter">
+                    <img src="{% static 'images/faq-bg.png' %}" class="patter patter-2" alt="Patter">
+                </div>
+            </div>
+        </section>
+        <footer class="footer purple relative pt-100" id="footer">
+            <canvas id="footer-dots" width="430" height="760"></canvas>
+
+            <div class="copyright mt-100" bis_skin_checked="1">
+                <div class="container" bis_skin_checked="1">
+                    <div class="row" bis_skin_checked="1">
+                        <div class="col-xl-8 col-lg-8 col-md-9 order-r-2" bis_skin_checked="1">
+                            <p>2015 - 2024 Ⓒ Escrowswaptrade.com all Rights Reserved.</p>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-3 order-r-1" bis_skin_checked="1">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    {% block extra_js %}
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/animation.js' %}"></script>
+    <script src="{% static 'js/footer-canvas.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    {% endblock %}
+</body>
+</html>
+{% endblock %}

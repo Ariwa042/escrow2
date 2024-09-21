@@ -1,0 +1,14 @@
+Subject: Trade Invitation
+
+Hello,
+
+You have been invited to participate in a trade. Here are the details:
+
+Buyer Email: {{ buyer_email }}
+Seller Email: {{ seller_email }}
+Trade Details: {{ trade_details }}
+
+Please respond to this invitation at your earliest convenience.
+
+Regards,
+Your Team

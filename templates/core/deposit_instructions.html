@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Deposit Instructions</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            background-image: url('/static/images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .deposit-container {
+            background-color: #335dcd66;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        h1 {
+            color: ghostwhite;
+            margin-bottom: 1.5rem;
+        }
+        strong {
+            color: ghostwhite;
+        }
+        .deposit-info {
+            margin-bottom: 1.5rem;
+        }
+
+        .deposit-info p {
+            color: ghostwhite;
+            font-weight: bold;
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        p.wallet-address {
+            color: black;
+            font-weight: bold;
+        }
+        .wallet-address {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            word-break: break-all;
+            animation: pulseHighlight 2s infinite;
+        }
+
+        .submit-btn {
+            background-color: #4299e1;
+            width: 100%;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        img {
+            width: 50%;
+            height: auto;
+            border: 1px solid gray;
+            animation: pulseHighlight 2s infinite
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseHighlight {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="deposit-container">
+        <h1>Deposit Instructions</h1>
+        <div class="deposit-info">
+            <p><strong>Amount to deposit:</strong></p>
+            <p>{{ amount }} {{ crypto_coin.name }}</p>
+        </div>
+        <div class="deposit-info">
+            <p><strong>Wallet Address:</strong></p>
+            <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+            <p class="wallet-address">{{ crypto_coin.wallet_address }}</p>
+
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="submit-btn">Submit Deposit</button>
+        </form>
+    </div>
+</body>
+</html>

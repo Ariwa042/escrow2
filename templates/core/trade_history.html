@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade History</title>
+    <link rel="stylesheet" href="{% static 'css/trade-history.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="//code.jivosite.com/widget/8OXFzkWDju" async></script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="{% url 'core:dashboard' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+        </a></header>
+    <main class="trade-history-section">
+        <div class="container">
+            <h1 class="page-title">Trade History</h1>
+            <div class="table-container">
+                <table class="trade-history-table">
+                    <thead>
+                        <tr>
+                            <th>Trade ID</th>
+                            <th>Buy</th>
+                            <th>Sell</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for trade in trades %}
+                        <tr class="trade-row" data-href="{% url 'core:trade_detail' trade.trade_id %}">
+                            <td class="trade-id">{{ trade.trade_id }}</td>
+                            <td>
+                                <span class="amount-currency">{{ trade.buyer_crypto_coin.symbol }}</span>
+                            </td>
+                            <td>
+                                <span class="amount-currency">{{ trade.seller_crypto_coin.symbol }}</span>
+                            </td>
+                            <td><span class="status-badge status-{{ trade.status|lower }}">{{ trade.status }}</span></td>
+                            <td>{{ trade.created_at|date:"m/d/Y" }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.querySelectorAll('.trade-row').forEach(row => {
+            row.addEventListener('click', () => {
+                window.location.href = row.dataset.href;
+            });
+        });
+    </script>
+</body>
+</html>

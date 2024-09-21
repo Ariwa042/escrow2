@@ -1,0 +1,260 @@
+:root {
+  --primary-color: #235b93;
+  --secondary-color: #3498db;
+  --background-color: ghostwhite;
+  --text-color: #333;
+  --hover-color: #ecf0f1;
+  --border-color: #e0e0e0;
+  --transition-duration: 0.3s;
+  --deposit-color: #27ae60;
+  --withdrawal-color: #e74c3c;
+  --status-completed-bg: #e8f5e9;
+  --status-completed-color: #27ae60;
+  --status-pending-bg: #fff8e1;
+  --status-pending-color: #f39c12;
+  --status-failed-bg: #ffebee;
+  --status-failed-color: #e74c3c;
+}
+
+.site-header {
+  background-color: #235b93;
+  text-align: center;
+  padding: 1rem;
+}
+
+.logo {
+  max-width: 150px;
+}
+/* ... (previous CSS rules remain unchanged) ... */
+
+.status {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+.status-completed {
+  background-color: var(--status-completed-bg);
+  color: var(--status-completed-color);
+}
+
+.status-pending {
+  background-color: var(--status-pending-bg);
+  color: var(--status-pending-color);
+}
+
+.status-failed {
+  background-color: var(--status-failed-bg);
+  color: var(--status-failed-color);
+}
+
+/* ... (rest of the CSS remains unchanged) ... */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  transition: background-color var(--transition-duration);
+}
+
+.transaction-history-section {
+  padding: 2rem 0;
+  transition: padding var(--transition-duration);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  overflow-wrap: anywhere;
+  transition: padding var(--transition-duration);
+}
+
+h2 {
+  font-family: Roboto, sans-serif;
+  font-size: 1.5rem;
+  color: ghostwhite;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.3s;
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-top: 2rem;
+  text-align: -webkit-center;
+  margin-bottom: 1rem;
+  opacity: 0;
+  text-transform: uppercase;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.5s;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.95rem;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.7s;
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  transition: background-color var(--transition-duration), padding var(--transition-duration);
+}
+
+.transaction-table th {
+  background-color: var(--primary-color);
+  width: 1rem;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+}
+
+.transaction-table tbody tr {
+  transition: all var(--transition-duration) ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.transaction-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.transaction-table tbody tr:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.status {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.amount {
+  font-weight: 500;
+}
+
+.date {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.pagination a {
+  color: var(--secondary-color);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: background-color var(--transition-duration);
+  border-radius: 4px;
+}
+
+.pagination a:hover {
+  background-color: var(--hover-color);
+}
+
+.pagination .current {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+@media (max-width: 992px) {
+  .container {
+      padding: 0 1rem;
+    
+  }
+
+  .transaction-table {
+      font-size: 0.9rem;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+      padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+  }
+
+  h3 {
+      font-size: 1.5rem;
+  }
+
+  .transaction-table {
+      font-size: 0.85rem;
+  }
+
+  .transaction-table {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media (max-width: 576px) {
+  .transaction-table {
+      font-size: 0.8rem;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+      padding: 0.75rem 0.5rem;
+  }
+
+  h2 {
+      font-size: 1.8rem;
+  }
+
+  h3 {
+      font-size: 1.3rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

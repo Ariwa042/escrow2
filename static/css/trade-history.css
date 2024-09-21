@@ -1,0 +1,242 @@
+:root {
+  --primary-color: #235b93;
+  --secondary-color: #3498db;
+  --background-color: ghostwhite;
+  --text-color: #333;
+  --hover-color: #ecf0f1;
+  --border-color: #e0e0e0;
+  --transition-duration: 0.3s;
+  --deposit-color: #27ae60;
+  --withdrawal-color: #e74c3c;
+  --status-completed-bg: #e8f5e9;
+  --status-completed-color: #27ae60;
+  --status-pending-bg: #fff8e1;
+  --status-pending-color: #f39c12;
+  --status-failed-bg: #ffebee;
+  --status-failed-color: #e74c3c;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: background-color var(--transition-duration);
+}
+
+.trade-history-section {
+    padding: 4rem 0;
+    transition: padding var(--transition-duration);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    transition: padding var(--transition-duration);
+    overflow-wrap: anywhere;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: ghostwhite;
+    text-align: center;
+    margin-bottom: 3rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 20px;
+    padding: 1rem;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.3s;
+}
+
+.table-container {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.5s;
+}
+
+.trade-history-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.95rem;
+}
+
+.trade-history-table th,
+.trade-history-table td {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    transition: background-color var(--transition-duration), padding var(--transition-duration);
+}
+
+.trade-history-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.5px;
+    font-size: 0.7em;
+}
+
+.trade-history-table tbody tr {
+    transition: all var(--transition-duration) ease;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.trade-history-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.trade-history-table tbody tr:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.trade-id {
+    font-weight: 600;
+    color: var(--secondary-color);
+    transition: color var(--transition-duration);
+}
+
+.amount {
+    font-weight: 500;
+}
+
+.amount-value {
+    font-size: 1.1rem;
+    margin-right: 0.25rem;
+}
+
+.amount-currency {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+}
+
+.buyer-amount {
+    color: #27ae60;
+}
+
+.seller-amount {
+    color: #e74c3c;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+.status-completed {
+    background-color: #e8f5e9;
+    color: #27ae60;
+}
+
+.status-pending {
+    background-color: #fff8e1;
+    color: #f39c12;
+}
+
+.status-failed {
+    background-color: #ffebee;
+    color: #e74c3c;
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .trade-history-table {
+        font-size: 0.9rem;
+    }
+
+    .trade-history-table th,
+    .trade-history-table td {
+        padding: 1rem;
+    }
+
+    .status-badge {
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .trade-history-table {
+        font-size: 0.85rem;
+    }
+
+    .amount-value {
+        font-size: 1rem;
+    }
+
+    .amount-currency {
+        font-size: 0.8rem;
+    }
+
+    .table-container {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+}
+
+@media (max-width: 576px) {
+    .trade-history-table {
+        font-size: 0.8rem;
+    }
+
+    .trade-history-table th,
+    .trade-history-table td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .status-badge {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.site-header {
+  background-color: #235b93;
+  text-align: center;
+  padding: 1rem;
+}
+
+.logo {
+  max-width: 150px;
+}

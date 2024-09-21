@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Create Trade{% endblock %}</title>
+    <script src="//code.jivosite.com/widget/8OXFzkWDju" async></script>
+    {% block extra_css %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Minimal CSS for structure */
+        body {
+            background-color: #f8f9fa;
+            background-image: url("{% static 'images/background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;
+            background-attachment: fixed;
+        }
+        h1 {
+          color: rgb(26, 54, 93);
+          font-weight: 700;
+          font-size: 2.0rem;
+          margin-bottom: 1rem;
+          
+        }
+        .trade-form-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-top: 6px solid rgb(66, 153, 225);
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+        label {
+          color: rgb(26, 54, 93);
+          margin-bottom: 0.5rem;
+          font-weight: 500;
+          display: block;
+        }
+          button.btn.btn-primary.btn-block {
+              background-color: rgb(43, 108, 176);
+              margin-top: 2.3rem;
+          }
+        }
+    </style>
+    {% endblock %}
+</head>
+<body>
+    <main>
+        {% block content %}
+        <div class="container">
+            <div class="trade-form-container">
+                <header>
+                    <h1 class="text-center mb-4">Create a New Trade</h1>
+                </header>
+                
+                <section class="trade-form-section">
+                    <form method="post" action="{% url 'core:create_trade' %}" class="trade-form">
+                        {% csrf_token %}
+                        
+                        {% for field in form %}
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+
+                        {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                    <li>{{ field.label }}: {{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                        <button type="submit" class="btn btn-primary btn-block">Submit Trade</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+
+        <!-- Trade Status Modal -->
+        <div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="tradeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tradeModalLabel">Trade Status</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="tradeMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const form = event.target;
+                const formData = new FormData(form);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const tradeMessage = document.getElementById('tradeMessage');
+                    if (data.success) {
+                        tradeMessage.innerHTML = `<div class="alert alert-success">Trade created successfully! Trade ID: ${data.trade_id}</div>`;
+                        setTimeout(function() {
+                            window.location.href = `{% url 'core:trade_detail' 'TRADE_ID_PLACEHOLDER' %}`.replace('TRADE_ID_PLACEHOLDER', data.trade_id);
+                        }, 2000);
+                    } else {
+                        let errorMessage = 'Failed to create trade.';
+                        if (data.error) {
+                            errorMessage += ` Error: ${data.error}`;
+                        }
+                        tradeMessage.innerHTML = `<div class="alert alert-danger">${errorMessage}</div>`;
+                    }
+                    $('#tradeModal').modal('show');
+                })
+                .catch(error => {
+                    document.getElementById('tradeMessage').innerHTML = '<div class="alert alert-danger">An error occurred. Please try again.</div>';
+                    $('#tradeModal').modal('show');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Success</title>
+    <style>
+        body {
+            background-image: url('/static/images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: luminosity;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-width: 400px;
+            width: 80%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .tick-image {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #38a169;
+            margin: 1rem 0;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: white;
+            background-color: #4299e1;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2b6cb0;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'images/check.png' %}" alt="Success" class="tick-image">
+        <h1>Deposit Successful!</h1>
+        <p>Your deposit has been marked as paid and is being processed.</p>
+        <a href="{% url 'core:dashboard' %}" class="btn">Go to Dashboard</a>
+    </div>
+</body>
+</html>

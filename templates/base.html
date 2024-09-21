@@ -1,0 +1,56 @@
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>{% block title %}Escrowswap{% endblock %}</title>
+
+                    <!-- Google Fonts -->
+                    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+                    {% load static %}
+                    
+                    <!--<link rel="stylesheet" href="{% static 'css/style.css' %}">
+                    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+                    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+                    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}">
+                    <link rel="stylesheet" type="text/css" href="{% static 'css/animations.css' %}">
+                    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+                    <link rel="stylesheet" type="text/css" href="{% static 'css/color.css' %}">
+                    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}"> -->
+
+                    
+                    <!-- Additional CSS block for child templates -->
+                    {% block extra_css %}{% endblock %}
+                <script src="//code.jivosite.com/widget/8OXFzkWDju" async></script>
+                </head>
+                <body>
+                    <!-- Preloader -->
+                   <!-- <div id="preloader">
+                        <div class="preloader-box">
+                            <img src="{% static 'images/preloader.png' %}" alt="preloader">
+                            <p class="loading">Loading...</p>
+                        </div>
+                    </div>
+
+                    <!-- Header -->
+                    
+                    <!-- Main Content -->
+                    <main>
+                        {% block content %}
+                        <!-- Content from child templates will be inserted here -->
+                        {% endblock %}
+                    </main>
+
+                    <!-- Footer -->
+                    
+                    <!-- JavaScript Files -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+                    <script src="{% static 'js/custom.js' %}"></script>
+
+                    <!-- Additional JavaScript block for child templates -->
+                    {% block extra_js %}{% endblock %}
+                </body>
+                </html>

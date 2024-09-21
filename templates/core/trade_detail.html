@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Trade Detail{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/trade-detail.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="//code.jivosite.com/widget/8OXFzkWDju" async></script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="{% url 'core:dashboard' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+        </a></header>
+    {% block content %}
+    <main class="trade-detail-section">
+        <div class="container">
+            
+            <div class="trade-info card">
+                <h1 class="page-title">Trade Details</h1>
+                <h2 class="card-title">Transaction Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>Fee Payer</h3>
+                        <p class="data">{{ trade.escrow_fee_payer }}</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Fee Payment Status</h3>
+                        <p class="data status-indicator status-{{ trade.fee_payment_status|lower }}">{{ trade.fee_payment_status }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="participants-info">
+                <div class="seller-info card">
+                    <h2 class="card-title">Seller</h2>
+                    <p><strong>ID:</strong> <span class="data">{{ trade.seller_email }}</span></p>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h3>Deposit</h3>
+                            <p><strong>Token:</strong> <span class="data">{{ trade.seller_crypto_coin }}</span></p>
+                            <p><strong>Amount:</strong> <span class="data">{{ trade.seller_token_quantity }}</span></p>
+                            <p><strong>Status:</strong> <span class="data status-indicator status-{{ trade.seller_deposit_status|lower }}">{{ trade.seller_deposit_status }}</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="buyer-info card">
+                    <h2 class="card-title">Buyer</h2>
+                    <p><strong>ID:</strong> <span class="data">{{ trade.buyer_email }}</span></p>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h3>Deposit</h3>
+                            <p><strong>Token:</strong> <span class="data">{{ trade.buyer_crypto_coin }}</span></p>
+                            <p><strong>Amount:</strong> <span class="data">{{ trade.buyer_token_quantity }}</span></p>
+                            <p><strong>Status:</strong> <span class="data status-indicator status-{{ trade.buyer_deposit_status|lower }}">{{ trade.buyer_deposit_status }}</span></p>
+                        </div>
+                        <div class="info-item">
+                            <h3>Withdrawal</h3>
+                            <p><strong>Status:</strong> <span class="data status-indicator status-{{ trade.buyer_withdrawal_status|lower }}">{{ trade.buyer_withdrawal_status }}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-group">
+            <a href="{% url 'core:create_deposit' %}" class="btn deposit">
+                <img src="{% static 'images/deposit.jpg' %}" alt="Deposit" class="icon">
+                Deposit
+            </a>
+            <a href="{% url 'core:create_withdrawal' %}" class="btn btn-secondary">
+                <img src="{% static 'images/withdraw.png' %}" alt="Withdraw" class="icon">
+                Withdraw
+            </a>
+        </div>
+    </main>
+    {% endblock %}
+</body>
+</html>

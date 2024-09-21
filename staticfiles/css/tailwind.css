@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom button styles */
+.btn {
+    @apply inline-block px-4 py-2 rounded font-semibold text-white transition duration-300 ease-in-out;
+}
+
+.btn-blue {
+    @apply bg-blue-500 hover:bg-blue-600;
+}
+
+.btn-green {
+    @apply bg-green-500 hover:bg-green-600;
+}
+
+.btn-purple {
+    @apply bg-purple-500 hover:bg-purple-600;
+}
+
+.btn-indigo {
+    @apply bg-indigo-500 hover:bg-indigo-600;
+}
+
+.btn-gray {
+    @apply bg-gray-500 hover:bg-gray-600;
+}
+
+.btn-red {
+    @apply bg-red-500 hover:bg-red-600;
+}
+
+.btn-yellow {
+    @apply bg-yellow-500 hover:bg-yellow-600;
+}
+
+.btn-teal {
+    @apply bg-teal-500 hover:bg-teal-600;
+}
+
+/* Custom styles for other elements */
+.container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.logo {
+    @apply max-w-xs;
+}
+
+.header-section {
+    @apply mb-8;
+}
+
+.main-content {
+    @apply py-8;
+}
+
+.dashboard-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.card {
+    @apply bg-white rounded-lg shadow-md p-6;
+}
+
+.card-title {
+    @apply text-xl font-semibold mb-4;
+}
+
+.card-details, .trade-detail {
+    @apply mb-2;
+}
+
+.welcome-message {
+    @apply text-3xl font-bold text-gray-800;
+}
+
+.flex {
+    @apply flex;
+}
+
+.flex-col {
+    @apply flex-col;
+}
+
+.flex-row {
+    @apply flex-row;
+}
+
+.flex-center {
+    @apply justify-center items-center;
+}
+
+.space-x-2 {
+    @apply space-x-2;
+}
+
+.text-center {
+    @apply text-center;
+}
+
+.text-gray-800 {
+    @apply text-gray-800;
+}
+
+.text-green-600 {
+    @apply text-green-600;
+}
+
+.text-blue-600 {
+    @apply text-blue-600;
+}
