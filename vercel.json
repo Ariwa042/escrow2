@@ -16,5 +16,9 @@
       "dest": "manage.py"
     }
   ],
+  "env": {
+    "DEBUG": "false",
+    "DATABASE_URL": "your_database_url"  // Add your actual database URL here
+  },
   "buildCommand": "pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput"
 }
