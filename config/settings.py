@@ -27,9 +27,9 @@ SECRET_KEY = 'django-insecure-s#m6^5*v6r-#j6rf_ftk0=3#*&blu96m#6ksw0sx+9fd*z!lvc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['.vercel.app']
+CSRF_TRUSTED_ORIGINS = ['https://systematic-hilda-escrow-e87d32fa.koyeb.app/']
 
 AUTH_USER_MODEL = 'account.User'
 
