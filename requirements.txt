@@ -2,3 +2,4 @@ django
 django-jazzmin
 gunicorn
 shortuuid
+qrcode[pil]
