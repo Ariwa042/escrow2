@@ -27,9 +27,9 @@ SECRET_KEY = 'django-insecure-s#m6^5*v6r-#j6rf_ftk0=3#*&blu96m#6ksw0sx+9fd*z!lvc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'https://escrow042.pythonanywhere.com', 'escrowswap.site']
+ALLOWED_HOSTS = ['*', 'https://www.escrowpioneer.com', 'escrowpioneer.com']
 
-CSRF_TRUSTED_ORIGINS = ['https://escrow042.pythonanywhere.com', 'https://escrowswap.site']
+CSRF_TRUSTED_ORIGINS = ['https://www.escrowpioneer.com/', 'https://escrowpioneer.onrender.com', 'https://escrowpioneer.com']
 
 AUTH_USER_MODEL = 'account.User'
 
@@ -143,11 +143,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'jo37288997@gmail.com'  # Replace with your Gmail address
-EMAIL_HOST_PASSWORD = 'upfl lxyl fsah shha'  # Your Gmail app password
+EMAIL_HOST_USER = 'escrowtrade02@gmail.com'  # Replace with your Gmail address
+EMAIL_HOST_PASSWORD = 'lkeb fkzs dofo qxtp'  # Your Gmail app password
+DEFAULT_FROM_EMAIL = 'Escrow Pioneer <escrowtrade02@gmail.com>'
 
 JAZZMIN_SETTINGS = {
-    'site_title': 'Escrowswap',
+    'site_title': 'Escrow Pioneer',
     "site_header": "Escrow admin",
     "theme": 'darkly',
     "site_url": BASE_URL,
