@@ -1,5 +1,6 @@
-django
+django==4.2
 django-jazzmin
 gunicorn
 shortuuid
 qrcode[pil]
+whitenoise
