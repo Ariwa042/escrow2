@@ -27,9 +27,9 @@ SECRET_KEY = 'django-insecure-s#m6^5*v6r-#j6rf_ftk0=3#*&blu96m#6ksw0sx+9fd*z!lvc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://escrow042.pythonanywhere.com', 'escrowswap.site']
 
-CSRF_TRUSTED_ORIGINS = ['https://systematic-hilda-escrow-e87d32fa.koyeb.app/']
+CSRF_TRUSTED_ORIGINS = ['https://escrow042.pythonanywhere.com', 'https://escrowswap.site']
 
 AUTH_USER_MODEL = 'account.User'
 
@@ -37,8 +37,8 @@ AUTH_USER_MODEL = 'account.User'
 # Application definition
 
 INSTALLED_APPS = [
-   'jazzmin', 
-    'django.contrib.admin', 
+    'jazzmin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  #
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -131,6 +132,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build','staticfiles')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
