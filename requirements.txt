@@ -4,3 +4,4 @@ gunicorn
 shortuuid
 qrcode[pil]
 whitenoise
+psycopg2-binary
